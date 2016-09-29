@@ -31,6 +31,11 @@
 
 #pragma mark Initalization and Setup
 
+
+-(void)dealloc {
+    [self unregisterFromNotificationCenter];
+}
+
 - (id)init
 {
     self = [super init];

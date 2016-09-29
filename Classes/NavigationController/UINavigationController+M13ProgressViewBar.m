@@ -23,6 +23,12 @@ static char secondaryColorKey;
 
 @implementation UINavigationController (M13ProgressViewBar)
 
+
+-(BOOL)isiPhonePlus {
+    return ([[UIScreen mainScreen] nativeScale] == 3.0f);
+}
+
+
 #pragma mark Title
 
 - (void)setProgressTitle:(NSString *)title
@@ -196,7 +202,7 @@ static char secondaryColorKey;
     if (UIInterfaceOrientationIsLandscape(interfaceOrientation)) {
         //Use the maximum value
         width = MAX(screenSize.width, screenSize.height);
-        if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+        if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone && ![self isiPhonePlus]) {
             height = 32.0; //Hate hardcoding values, but autolayout doesn't work, and cant retreive the new height until after the animation completes.
         } else {
             height = 44.0; //Hate hardcoding values, but autolayout doesn't work, and cant retreive the new height until after the animation completes.
