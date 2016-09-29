@@ -25,7 +25,7 @@ static char secondaryColorKey;
 
 
 -(BOOL)isiPhonePlus {
-    return ([[UIScreen mainScreen] nativeScale] == 3.0f);
+    return ([[UIScreen mainScreen] scale] == 3.0f);
 }
 
 
